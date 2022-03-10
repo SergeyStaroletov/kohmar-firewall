@@ -28,7 +28,7 @@ Installation and running:
 4. make userspace ADS in ./ADS (qmake/Qt creator).
 5. copy *.samples *.settings *.conf from ADS to a build targert dir. 
 6. edit ./drvctl/module.conf to specify a network interface 
-7. run sudo drvctl start in ./drvctl and check if no errors
+7. run sudo ads_drvctl start in ./drvctl and check if no errors
 8. run ADS in ./ADS
 9. ping the specified interface, debug output should scroll. Run youtube/etc to test. Anomaly graph should paint points.
 10. currently it should just to show anomalies but do not apply the minied rules. 
