@@ -19,15 +19,15 @@ but I have almost no time to work on it. Also I am interesting on some formaliza
 Software architecture to be presented at <a href = "https://www.icin-conference.org">ICIN 22 conference</a>.
 
 Installation and running: 
-1. make .ko module in ./netfilter using make 
+1. make the .ko module in ./netfilter using make 
 (to build for ARM I had to run in addition: sudo cp /sys/kernel/btf/vmlinux /lib/modules/`uname -r`/build; sudo apt install dwarves)
-3. make starter in ./drvctl (qmake/Qt creator)
+3. make the starter app in ./drvctl (qmake/Qt creator)
 4. make userspace ADS in ./ADS (qmake/Qt creator).
 5. copy *.samples *.settings *.conf from ADS to a build targert dir. 
 6. edit ./drvctl/module.conf to specify a network interface 
 7. run sudo drvctl start in ./drvctl and check if no errors
 8. run ADS in ./ADS
-9. ping the specified interface, debug output should scroll. Run youtube/etc to test. Anomaly graph should paint.
+9. ping the specified interface, debug output should scroll. Run youtube/etc to test. Anomaly graph should paint points.
 10. currently it should just to show anomalies but do not apply the minied rules. 
 11. it comes with very simple training sets. Record your training sets using a menu (especially for SOM). 
 
