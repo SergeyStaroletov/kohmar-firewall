@@ -18,6 +18,9 @@ but I have almost no time to work on it. Also I am interesting on some formaliza
 
 Software architecture to be presented at <a href = "https://www.icin-conference.org">ICIN 22 conference</a>.
 
+<img src="kohmar_screen.png" width="400" />
+
+
 Installation and running: 
 1. make the .ko module in ./netfilter using make 
 (to build for ARM I had to run in addition: sudo cp /sys/kernel/btf/vmlinux /lib/modules/`uname -r`/build; sudo apt install dwarves)
