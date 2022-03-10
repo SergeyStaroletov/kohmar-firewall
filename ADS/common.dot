@@ -1,0 +1,28 @@
+digraph g {
+node1[label ="[]
+"];
+node2[label ="[1]
+ack:0 syn:1 fin:0 psh:0 urg:0 rst:0\n"];
+node1->node2 [label = "0.0948333"];
+node3[label ="[2]
+ack:1 syn:0 fin:0 psh:0 urg:0 rst:0\n"];
+node1->node3 [label = "0.3249"];
+node4[label ="[3]
+ack:1 syn:1 fin:0 psh:0 urg:0 rst:0\n"];
+node1->node4 [label = "0.0542333"];
+node5[label ="[6]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:0\n"];
+node1->node5 [label = "0.338433"];
+node6[label ="[:]
+ack:1 syn:0 fin:0 psh:0 urg:0 rst:1\n"];
+node1->node6 [label = "0.0136333"];
+node7[label ="[>]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:1\n"];
+node1->node7 [label = "0.0136333"];
+node8[label ="[M]
+ack:0 syn:1 fin:0 psh:1 urg:1 rst:1\n"];
+node1->node8 [label = "0.00686667"];
+node9[label ="[R]
+ack:1 syn:0 fin:1 psh:0 urg:0 rst:0\n"];
+node1->node9 [label = "0.115133"];
+}

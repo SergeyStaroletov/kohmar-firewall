@@ -1,0 +1,8 @@
+tcp_anomaly_depth=3
+tcp_anomaly_limit=40
+tcp_generate_rules=false
+tcp_drop_ports=2
+flow_packs_max_count=20
+flow_min_count_packs_in_conn=0
+flow_anomaly_limit=21
+flow_generate_rules=false

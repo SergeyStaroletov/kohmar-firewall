@@ -1,0 +1,58 @@
+digraph g {
+node1[label ="[]
+"];
+node2[label ="[1]
+ack:0 syn:1 fin:0 psh:0 urg:0 rst:0\n"];
+node1->node2 [label = "0.0685714"];
+node3[label ="[2]
+ack:1 syn:0 fin:0 psh:0 urg:0 rst:0\n"];
+node1->node3 [label = "0.252917"];
+node4[label ="[3]
+ack:1 syn:1 fin:0 psh:0 urg:0 rst:0\n"];
+node1->node4 [label = "0.0580373"];
+node5[label ="[6]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:0\n"];
+node1->node5 [label = "0.447797"];
+node6[label ="[8]
+ack:0 syn:0 fin:0 psh:0 urg:0 rst:1\n"];
+node1->node6 [label = "0.0633043"];
+node7[label ="[R]
+ack:1 syn:0 fin:1 psh:0 urg:0 rst:0\n"];
+node1->node7 [label = "0.0685714"];
+node8[label ="[m]
+ack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node1->node8 [label = "0.00536703"];
+node9[label ="[6m]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node8->node9 [label = "0.9745"];
+node10[label ="[66m]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node9->node10 [label = "0.9745"];
+node11[label ="[666m]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node10->node11 [label = "0.9745"];
+node12[label ="[6666m]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node11->node12 [label = "0.9745"];
+node13[label ="[26666m]
+ack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node12->node13 [label = "0.0001"];
+node14[label ="[626666m]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node13->node14 [label = "0.9745"];
+node15[label ="[2626666m]
+ack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node14->node15 [label = "0.0001"];
+node16[label ="[62626666m]
+ack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node15->node16 [label = "0.9745"];
+node17[label ="[262626666m]
+ack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node16->node17 [label = "0.0001"];
+node18[label ="[3262626666m]
+ack:1 syn:1 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node17->node18 [label = "0.0001"];
+node19[label ="[13262626666m]
+ack:0 syn:1 fin:0 psh:0 urg:0 rst:0\nack:1 syn:1 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:0 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:1 syn:0 fin:0 psh:1 urg:0 rst:0\nack:0 syn:1 fin:1 psh:1 urg:1 rst:1\n"];
+node18->node19 [label = "0.0001"];
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0"?> 
+<dimension dim='1'></dimension>
+<sample anomaly='0.3' >
+  <elem val='125' ></elem>
+</sample>
+<sample anomaly='0.5' >
+  <elem val='124'></elem>
+</sample>
+<sample anomaly='0.6' >
+  <elem val='142' ></elem>
+</sample>
+<sample anomaly='0.7' >
+  <elem val='152' ></elem>
+</sample>

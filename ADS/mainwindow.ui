@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1412</width>
+    <height>1017</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>KohMar: Anomaly Detection System</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon.png</normaloff>icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTabWidget" name="tabWidgetTCP">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>1371</width>
+      <height>931</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string> TCP traffic anomalies</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>10</y>
+        <width>861</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Events</string>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>231</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Detected anomalies</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>260</y>
+         <width>251</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generated rules</string>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="tableWidgetGenRules">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>290</y>
+         <width>811</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <column>
+        <property name="text">
+         <string>No</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Time</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Src IP</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Src port</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Dest IP</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Dest port</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QTableWidget" name="tableWidgetTCPDetAnom">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>811</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <column>
+        <property name="text">
+         <string>Time</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Anomaly score</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Src IP</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Src port</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Dest IP</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Dest Port</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>States</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Predictor</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QPushButton" name="pushButtonFalseAlarm">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>260</y>
+         <width>271</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mark as a False Alarm</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBoxTCPGraph">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>471</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>TCP connections anomaly graph</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Traffic flow anomalies</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBoxFlowGraph">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>451</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Traffic flow anomaly graph</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>10</y>
+        <width>881</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Events</string>
+      </property>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>251</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Detected anomalies:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Groupped rules:</string>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="tableWidgetGroupRules">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>230</y>
+         <width>741</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <column>
+        <property name="text">
+         <string>No</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Time</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Src IP</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Src port</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Dest IP</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Dest port</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QTableWidget" name="tableWidgetFlowDetAnom">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>421</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <column>
+        <property name="text">
+         <string>Time</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Anomaly score</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>№</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QPushButton" name="pushButtonFalseAlarmFlow">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>190</y>
+         <width>161</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mark as a False Alarm</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBoxSOM">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>420</y>
+        <width>1341</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Kohonen maps (SOM)</string>
+      </property>
+      <widget class="QTableWidget" name="tableWidgetSOM">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>451</width>
+         <height>421</height>
+        </rect>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1412</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="about"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Setup</string>
+    </property>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>Learning</string>
+     </property>
+     <addaction name="actionTCP"/>
+     <addaction name="actionFlow"/>
+    </widget>
+    <addaction name="actionSettings"/>
+    <addaction name="separator"/>
+    <addaction name="menu_4"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Firewall</string>
+    </property>
+    <addaction name="rules"/>
+   </widget>
+   <addaction name="menu_3"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="about">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="rules">
+   <property name="text">
+    <string>Rules...</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>General</string>
+   </property>
+  </action>
+  <action name="actionTCP">
+   <property name="text">
+    <string>Train the TCP anomaly detection system</string>
+   </property>
+  </action>
+  <action name="actionFlow">
+   <property name="text">
+    <string>Train the traffic flow anomaly detection system</string>
+   </property>
+  </action>
+  <action name="run_stop_action">
+   <property name="text">
+    <string>Pause</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
