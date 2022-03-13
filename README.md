@@ -1,5 +1,5 @@
 # kohmar-firewall
-Anomaly Detection System for network traffic in realtime using Markov chains and Kohonen SOM
+MVP: Anomaly Detection System for network traffic in real-time using Markov chains and Kohonen SOM
 
 
 Variable-order Markov chain is used to represent TCP traffic states.
