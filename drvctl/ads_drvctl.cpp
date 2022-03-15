@@ -198,7 +198,7 @@ int main(int argc, char **argv) {
 
   if (argc != 2 || (strcmp(argv[1], "stop") && strcmp(argv[1], "start") &&
                     strcmp(argv[1], "restart"))) {
-    cout << "tcdrv.ko configurator. Usage tcdrvctl start|stop|restart" << endl;
+    cout << "ads .ko configurator. Usage ads_drvctl start|stop|restart" << endl;
     return 0;
   }
 
@@ -207,7 +207,7 @@ int main(int argc, char **argv) {
   logger->log("reading config...");
 
   ConfigReader reader("module.conf");
-  path = reader.getGlobalProperty("path_to_tcdrv", ".");
+  path = reader.getGlobalProperty("path_to_ads_drv", ".");
   iface = reader.getGlobalProperty("iface", "eth0");
   drop = reader.getGlobalProperty("drop_packets", "on");
   buf_size = reader.getGlobalProperty("sniffer_memory_map_size", 41943040);
