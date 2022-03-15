@@ -9,6 +9,8 @@ anomaly score with pretrained information.
 To obtain the traffic, it used self high-performance solution comprising a kernel module, packet_mmap and queues/threads 
 to process the new packets. 
 
+The code does not use any external library, so all the ideas of traffic processing and anomaly detection and UI were implemented in presented C/C++ files.
+
 Initially developed for x86_64, but now it was tested only with Ubuntu/ARM64 and 5.13.0-32-generic Linux Kernel.
 
 Work with my student Roman. 
