@@ -13,12 +13,13 @@ The code does not use any external library, so all the ideas of traffic processi
 
 Initially developed for x86_64, but now it was tested only with Ubuntu/ARM64 and 5.13.0-32-generic Linux Kernel.
 
-Work with my student Roman. 
+Work with my student Roman Сudоv. 
 Currently it is only in a research state. Probably, I will add some other detectors/metrics/UI and make proper evaluation of it,
 but I have almost no time to work on it. Also I am interesting on some formalization of the logics and prove some theories on it.
 
 
-Software architecture to be presented at <a href = "https://www.icin-conference.org">ICIN 22 conference</a>.
+Software architecture was presented at <a href = "https://www.icin-conference.org">ICIN 22 conference</a>.
+<a href = "https://ieeexplore.ieee.org/document/9758121"> Software architecture in the IEEE paper</a>
 
 <img src="kohmar_screen.png" width="400" />
 
@@ -35,6 +36,7 @@ Installation and running:
 9. ping the specified interface, debug output should scroll. Run youtube/etc to test. Anomaly graph should paint points.
 10. currently it should just to show anomalies but do not apply the minied rules. 
 11. it comes with very simple training sets. Record your training sets using a menu (especially for SOM). 
+
 
 
 
