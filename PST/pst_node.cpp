@@ -6,6 +6,7 @@
 
 #include "pst_node.h"
 #include <QDebug>
+using namespace std;
 
 static int node_id = 0;
 static QString treeDot;
@@ -21,16 +22,14 @@ PstNode::PstNode() {
 
   isLeaf = true;
 
-  char *str = new char[5];
-  strcpy(str, "");
+  string str;
+  // strcpy(str, "");
   idStr = str;
 }
 
 PstNode::PstNode(int alphabetSize) {
-  // idStr = "";
   ABSIZE = alphabetSize;
-  char *str = new char[5];
-  strcpy(str, "");
+  string str;
   idStr = str;
 
   absize = alphabetSize;
@@ -43,11 +42,11 @@ PstNode::PstNode(int alphabetSize) {
   isLeaf = true;
 }
 
-PstNode::PstNode(char *_idStr, double *_nextSymProbability, int alphabetSize) {
+PstNode::PstNode(string _idStr, double *_nextSymProbability, int alphabetSize) {
   isLeaf = true;
   ABSIZE = alphabetSize;
-  idStr = new char[strlen(_idStr) + 1];
-  strcpy(idStr, _idStr);
+  idStr = _idStr;
+  // strcpy(idStr, _idStr);
   nextSymProbability = _nextSymProbability;
   absize = alphabetSize;
   childrens = new PstNode *[absize];
@@ -56,15 +55,16 @@ PstNode::PstNode(char *_idStr, double *_nextSymProbability, int alphabetSize) {
     childrens[i] = NULL;
 }
 
-PstNode *PstNode::get(char *str) {
-  int strLen = strlen(str);
+PstNode *PstNode::get(string str) {
+  int strLen = str.size();
 
   if (strLen == 0) {
     return this;
   } else {
     int nextSymIndex = str[strLen - 1];
-    char ch = str[strLen - 1];
-    str[strLen - 1] = '\0';
+    char ch = str[strLen - 1]; // last
+    // str.erase(strLen - 1);
+    str[strLen - 1] = '\0'; // LEAVE?
 
     if (childrens[nextSymIndex] != NULL) {
       PstNode *ret = childrens[nextSymIndex]->get(str);
@@ -88,7 +88,7 @@ PstNode *PstNode::get(Context *context) {
   }
 }
 
-char *PstNode::getString() { return idStr; }
+string PstNode::getString() { return idStr; }
 
 void PstNode::insert(char symbol, double *_nextSymProbability) {
   if (isLeaf) {
@@ -99,18 +99,18 @@ void PstNode::insert(char symbol, double *_nextSymProbability) {
   }
 
   // char strDest = new char[2];
-  char strDest[200] = {0};
+  string strDest = "0";
   strDest[0] = symbol;
-  strDest[1] = 0;
 
-  PstNode *newNode = new PstNode(strcat(strDest, idStr != NULL ? idStr : ""),
-                                 _nextSymProbability, absize);
+  strDest = strDest + idStr;
+
+  PstNode *newNode = new PstNode(strDest, _nextSymProbability, absize);
   childrens[(int)symbol] = newNode;
 }
 
-QString str2flags(char *str) {
+QString str2flags(string str) {
   QString rez;
-  for (unsigned int i = 0; i < strlen(str); i++) {
+  for (unsigned int i = 0; i < str.size(); i++) {
     char cur_state = str[i];
     int cur_state2 = (int)cur_state - 48;
     int fin2 = (cur_state2 / 32);
@@ -134,7 +134,7 @@ QString str2flags(char *str) {
 }
 
 QString PstNode::printMe() {
-  qDebug() << "Printing PST = \n\n" << idStr << "\n";
+  qDebug() << "Printing PST = \n\n" << idStr.c_str() << "\n";
   node_id = 0;
   treeDot = "digraph g {\n";
   this->printRecursively(0, 0);
@@ -147,10 +147,11 @@ void PstNode::printRecursively(int parent, double prob) {
   node_id++;
   int my_node = node_id;
 
-  if (idStr) {
+  if (idStr != "") {
 
-    treeDot += "node" + QString::number(node_id) + "[label =\"[" + idStr + "]" +
-               "\n" + str2flags(idStr) + "\"];\n";
+    treeDot += "node" + QString::number(node_id) + "[label =\"[" +
+               QString::fromStdString(idStr) + "]" + "\n" + str2flags(idStr) +
+               "\"];\n";
   } else {
     treeDot += "node" + QString::number(node_id) + "[label =\"[-]\"];\n";
   }

@@ -12,6 +12,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
+#include <string>
 
 class PstNode {
 protected:
@@ -20,16 +21,16 @@ protected:
   PstNode **childrens;
   bool isLeaf;
   int absize;
-  char *idStr;
+  std::string idStr;
 
 public:
   PstNode();
   PstNode(int abSize);
-  PstNode(char *idStr, double *_nextSymProbability, int alphabetSize);
-  PstNode *get(char *str);
+  PstNode(std::string idStr, double *_nextSymProbability, int alphabetSize);
+  PstNode *get(std::string str);
   PstNode *get(char symbol);
   PstNode *get(Context *context);
-  char *getString();
+  std::string getString();
   void insert(char symbol, double *_nextSymProbability);
   QString printMe();
   void printRecursively(int parent, double prob);

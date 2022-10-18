@@ -11,6 +11,7 @@
 #include "pst_samples.h"
 #include <stdlib.h>
 #include <string.h>
+#include <string>
 #include <vector>
 
 class PstBuilder {
@@ -28,15 +29,15 @@ protected:
 
   Samples *samples;
 
-  std::vector<char *> queryStrs;
+  std::vector<std::string> queryStrs;
   std::vector<double *> suffStrNextSymProb;
   PstNode *pstRoot;
 
   PstNode *createPstRoot(double *nextSymProb);
   void init(double pMin, double nextSymProbMin);
-  void updateQueryStrs(char *str, double *nextSymProb, double pMin);
-  void addToTree(char *str, double *strNSymProb, double nextSymProbMin);
-  void initHitCounts(char *str);
+  void updateQueryStrs(std::string &str, double *nextSymProb, double pMin);
+  void addToTree(std::string &str, double *strNSymProb, double nextSymProbMin);
+  void initHitCounts(std::string &str);
   bool isConditionB(double *StrNSymProb, double *suffStrNSymProb, double alpha,
                     double nextSymProbMin, double addedValThreshold);
   double *smooth(double *prob, double nsMinP);

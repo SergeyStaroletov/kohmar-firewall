@@ -5,6 +5,9 @@
  */
 
 #include "pst_builder.h"
+#include <QDebug>
+#include <string>
+using namespace std;
 
 PstBuilder::PstBuilder() {
   ALPHABET_RANGE = 256;
@@ -39,12 +42,14 @@ PstNode *PstBuilder::build(Samples *_samples, double pMin, double alpha,
   init(pMin, nextSymProbMin);
 
   // start building the PST
-  char *str = new char[256];
+  string str;
   double *strNSymProb;
   double suffStrNSymProb[alphabetSize];
 
+  qDebug() << "run build";
+
   while (queryStrs.size() > 0) {
-    strcpy(str, queryStrs[0]);
+    str = queryStrs.at(0);
     queryStrs.erase(queryStrs.begin());
 
     for (int i = 0; i < alphabetSize; i++) {
@@ -61,7 +66,7 @@ PstNode *PstBuilder::build(Samples *_samples, double pMin, double alpha,
       addToTree(str, strNSymProb, nextSymProbMin);
     }
 
-    if ((int)strlen(str) < strMaxLength)
+    if ((int)str.size() < strMaxLength)
       updateQueryStrs(str, strNSymProb, pMin);
   }
 
@@ -98,9 +103,8 @@ void PstBuilder::init(double pMin, double nextSymProbMin) {
     prob[i] = strCharHits[i] / (double)allLength;
 
     if (prob[i] > pMin) {
-      char *ch = new char[2];
+      string ch = "0";
       ch[0] = (char)i;
-      ch[1] = '\0';
 
       queryStrs.push_back(ch);
       suffStrNextSymProb.push_back(prob);
@@ -128,14 +132,13 @@ double *PstBuilder::smooth(double *prob, double nsMinP) {
 }
 
 PstNode *PstBuilder::createPstRoot(double *nextSymProb) {
-  char *str = new char[10];
-  strcpy(str, "");
+  std::string str;
 
   PstNode *root = new PstNode(str, nextSymProb, alphabetSize); //!!
   return root;
 }
 
-void PstBuilder::initHitCounts(char *str) {
+void PstBuilder::initHitCounts(string &str) {
   for (int i = 0; i < alphabetSize; i++) {
     strCharHits[i] = 0;
     charStrHits[i] = 0;
@@ -145,7 +148,7 @@ void PstBuilder::initHitCounts(char *str) {
   strHits = 0;
 
   bool *isUpdatePerSample = new bool[alphabetSize];
-  int sampleSize, loopTest, strSize = strlen(str);
+  int sampleSize, loopTest, strSize = str.size();
 
   // BYTE * strBytes;
   for (int sampleID = 0, numOfSamples = samples->numOfSamples();
@@ -214,10 +217,11 @@ bool PstBuilder::isConditionB(double *StrNSymProb, double *suffStrNSymProb,
   return false;
 }
 
-void PstBuilder::updateQueryStrs(char *str, double *nextSymProb, double pMin) {
+void PstBuilder::updateQueryStrs(string &str, double *nextSymProb,
+                                 double pMin) {
   int allPossibleMatches = 0;
   int test = samples->numOfSamples();
-  int chStrLen = strlen(str) + 1;
+  int chStrLen = str.size() + 1;
 
   for (int i = 0; i < test; i++) {
     allPossibleMatches += samples->sizeSample(i) - chStrLen + 1;
@@ -226,23 +230,23 @@ void PstBuilder::updateQueryStrs(char *str, double *nextSymProb, double pMin) {
   for (int i = 0; i < alphabetSize; i++) {
     if (((double)charStrHits[i] / allPossibleMatches) >= pMin) {
       // char * ch = new char[2];
-      char ch[200] = {0};
+      string out;
+      string ch = "0";
       ch[0] = (char)i;
-      ch[1] = '\0';
-
-      queryStrs.push_back(strcat(ch, str));
+      out = ch + str;
+      queryStrs.push_back(out);
       suffStrNextSymProb.push_back(nextSymProb);
     }
   }
 }
 
-void PstBuilder::addToTree(char *str, double *strNSymProb,
+void PstBuilder::addToTree(string &str, double *strNSymProb,
                            double nextSymProbMin) {
   PstNode *deepestNode = pstRoot->get(str);
-  int str_length = strlen(str);
+  int str_length = str.size();
   int deep_length = 0;
-  if (deepestNode->getString() != NULL)
-    deep_length = strlen(deepestNode->getString());
+  if (deepestNode->getString() != "")
+    deep_length = deepestNode->getString().size();
 
   if (deep_length == str_length - 1) {
     deepestNode->insert(str[0], smooth(strNSymProb, nextSymProbMin));
@@ -258,7 +262,9 @@ void PstBuilder::addToTree(char *str, double *strNSymProb,
     double *prob;
 
     for (int i = str_length - deep_length - 1; i > -1; i--) {
-      initHitCounts(&str[i]);
+      string si = "0";
+      si[0] = str[i];
+      initHitCounts(si);
       prob = computeNextSymProb();
       deepestNode->insert(str[i], smooth(prob, nextSymProbMin));
     }
