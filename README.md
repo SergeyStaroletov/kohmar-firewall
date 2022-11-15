@@ -20,7 +20,10 @@ but I have almost no time to work on it. Also I am interesting on some formaliza
 
 Software architecture was presented at <a href = "https://www.icin-conference.org">ICIN 22 conference</a>.
 <a href = "https://ieeexplore.ieee.org/document/9758121"> Software architecture in the IEEE paper</a>
-<a href = "https://www.fruct.org/sites/default/files/files/FRUCT32_Program.pdf"> To be presented at FRUCT 32 conference </a>
+
+Full paper was published at <a href = "https://www.fruct.org/sites/default/files/files/FRUCT32_Program.pdf">FRUCT conference</a>
+
+Link to <a href="https://www.fruct.org/publications/volume-32/fruct32/files/Sta.pdf">Paper PDF</a> <a href = "https://youtu.be/8jUGZxco73o">Video presentation</a>
 
 <img src="kohmar_screen.png" width="400" />
 
